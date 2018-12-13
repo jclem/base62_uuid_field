@@ -1,4 +1,4 @@
-# Base62UUIDField [![Build Status](https://travis-ci.com/jclem/base62_uuid_field.svg?branch=master)](https://travis-ci.com/jclem/base62_uuid_field) [![Coverage Status](https://coveralls.io/repos/github/jclem/base62_uuid_field/badge.svg?branch=master)](https://coveralls.io/github/jclem/base62_uuid_field?branch=master)
+# Base62UUIDField [![Build Status](https://travis-ci.com/jclem/base62_uuid_field.svg?branch=master)](https://travis-ci.com/jclem/base62_uuid_field) [![Coverage Status](https://coveralls.io/repos/github/jclem/base62_uuid_field/badge.svg?branch=master&bump=1)](https://coveralls.io/github/jclem/base62_uuid_field?branch=master)
 
 An [Ecto.Type](https://hexdocs.pm/ecto/Ecto.Type.html) for Base62-encoded UUIDs.
 

@@ -1,7 +1,7 @@
 defmodule Base62UUIDField.MixProject do
   use Mix.Project
 
-  @version "1.0.0"
+  @version "1.0.1"
   @github_url "https://github.com/jclem/base62_uuid_field"
 
   def project do
@@ -55,6 +55,6 @@ defmodule Base62UUIDField.MixProject do
   end
 
   defp docs do
-    [extras: ~w(README.md LICENSE.md), main: "README", source_ref: "v#{@version}"]
+    [extras: ~w(README.md LICENSE.md), main: "readme", source_ref: "v#{@version}"]
   end
 end

@@ -15,6 +15,36 @@ def deps do
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/base62_uuid_field](https://hexdocs.pm/base62_uuid_field).
+## Usage
+
+This Ecto type builds on top of the existing `Ecto.UUID` type, except that it ensures that the types at runtime are represented as [Base62-encoded UUIDs](https://github.com/jclem/base62_uuid).
+
+For example, given an `identity_users` table with a `:binary_id` primary key:
+
+```elixir
+create table(:identity_users, primary_key: false) do
+  add :id, :binary_id, primary_key: true
+end
+```
+
+We can have Base62-encoded primary keys at runtime instead of much longer and less URL-friendly hexadecimal-encoded UUIDs.
+
+```elixir
+defmodule App.Identity.User do
+  use Ecto.Schema
+
+  @primary_key {:id, Base62UUIDField, autogenerate: true}
+
+  # ...etc.
+end
+```
+
+```elixir
+iex> %App.Identity.User{} |> App.Identity.User.changeset(%{}) |> App.Repo.insert!()
+%App.Identity.User{
+  __meta__: #Ecto.Schema.Metadata<:loaded, "identity_users">,
+  id: "6UupZ56JriyqxwjYXR9Aiz",
+  inserted_at: ~N[2018-12-13 18:22:57],
+  updated_at: ~N[2018-12-13 18:22:57]
+}
+```

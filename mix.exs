@@ -55,6 +55,6 @@ defmodule Base62UUIDField.MixProject do
   end
 
   defp docs do
-    [extras: ~w(LICENSE.md), main: "Base62UUIDField", source_ref: "v#{@version}"]
+    [extras: ~w(README.md LICENSE.md), main: "README", source_ref: "v#{@version}"]
   end
 end

@@ -7,6 +7,10 @@ defmodule Base62UUIDFieldTest do
     {:ok, uuid: uuid, encoded_uuid: Base62UUID.encode!(uuid), ecto_dumped_uuid: ecto_dumped_uuid}
   end
 
+  test ".autogenerate generates a Base62 UUID" do
+    assert String.length(Base62UUIDField.autogenerate()) == 22
+  end
+
   test ".type is a string" do
     assert Base62UUIDField.type() == :string
   end

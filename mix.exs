@@ -39,6 +39,7 @@ defmodule Base62UUIDField.MixProject do
   defp deps do
     [
       {:base62_uuid, "~> 2.0.0"},
+      {:ecto, "~> 3.0.5"},
       {:ex_doc, "~> 0.19.1", only: [:dev]},
       {:excoveralls, "~> 0.10.3", only: [:test]}
     ]

@@ -19,5 +19,5 @@ action "mix test" {
 
 action "mix format" {
   uses = "jclem/actions/mix@master"
-  args = "format --check-formatting"
+  args = "format --check-formatted"
 }

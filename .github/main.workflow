@@ -13,8 +13,12 @@ action "mix deps.get" {
 
 action "mix test" {
   uses = "jclem/actions/mix@master"
+  args = "coveralls.post --trace -n \"github-actions\" -b \"$GITHUB_REF\" -s \"$GITHUB_SHA\" -c \"$GITHUB_ACTOR\""
   needs = ["mix deps.get"]
-  args = "test --trace"
+  env = {
+    MIX_ENV = "test"
+  }
+  secrets = ["COVERALLS_REPO_TOKEN"]
 }
 
 action "mix format" {

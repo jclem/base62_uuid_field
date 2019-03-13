@@ -1,27 +1,27 @@
-workflow "Run tests" {
+workflow "Check on Push" {
   on = "push"
   resolves = [
-    "mix test",
-    "mix format",
+    "Check Formatting",
+    "Run Tests",
   ]
 }
 
-action "mix deps.get" {
-  uses = "jclem/actions/mix@master"
+action "Get Deps" {
+  uses = "jclem/action-mix/deps.get@v1.3.2"
   args = "deps.get"
 }
 
-action "mix test" {
-  uses = "jclem/actions/mix@master"
+action "Run Tests" {
+  uses = "jclem/action-mix@v1.3.2"
   args = "coveralls.post --trace -n \"github-actions\" -b \"$GITHUB_REF\" -s \"$GITHUB_SHA\" -c \"$GITHUB_ACTOR\""
-  needs = ["mix deps.get"]
   env = {
     MIX_ENV = "test"
   }
   secrets = ["COVERALLS_REPO_TOKEN"]
+  needs = ["Get Deps"]
 }
 
-action "mix format" {
-  uses = "jclem/actions/mix@master"
+action "Check Formatting" {
+  uses = "jclem/action-mix@v1.3.2"
   args = "format --check-formatted"
 }

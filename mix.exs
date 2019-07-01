@@ -1,7 +1,7 @@
 defmodule Base62UUIDField.MixProject do
   use Mix.Project
 
-  @version "1.0.1"
+  @version "1.0.2"
   @github_url "https://github.com/jclem/base62_uuid_field"
 
   def project do
@@ -39,7 +39,7 @@ defmodule Base62UUIDField.MixProject do
   defp deps do
     [
       {:base62_uuid, "~> 2.0.0"},
-      {:ecto, "~> 3.0.5"},
+      {:ecto, "~> 3.0"},
       {:ex_doc, "~> 0.19.1", only: [:dev]},
       {:excoveralls, "~> 0.10.3", only: [:test]}
     ]

@@ -3,7 +3,7 @@ defmodule Base62UUIDField do
   A field that is stored as a v4 UUID but presented as a Base62-encoded binary string.
   """
 
-  @behaviour Ecto.Type
+  use Ecto.Type
 
   @spec type() :: :string
   def type, do: :string

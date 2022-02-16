@@ -1,7 +1,7 @@
 defmodule Base62UUIDField.MixProject do
   use Mix.Project
 
-  @version "1.0.2"
+  @version "2.0.0"
   @github_url "https://github.com/jclem/base62_uuid_field"
 
   def project do
@@ -14,7 +14,7 @@ defmodule Base62UUIDField.MixProject do
       homepage_url: @github_url,
       source_url: @github_url,
       docs: docs(),
-      elixir: "~> 1.3",
+      elixir: "~> 1.7",
       test_coverage: [tool: ExCoveralls],
       preferred_cli_env: [
         coveralls: :test,
@@ -38,10 +38,10 @@ defmodule Base62UUIDField.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:base62_uuid, "~> 2.0.0"},
+      {:base62_uuid, "~> 3.0.0"},
       {:ecto, "~> 3.0"},
-      {:ex_doc, "~> 0.19.1", only: [:dev]},
-      {:excoveralls, "~> 0.10.3", only: [:test]}
+      {:ex_doc, "~> 0.28.0", only: [:dev]},
+      {:excoveralls, "~> 0.14.4", only: [:test]}
     ]
   end
 
